@@ -1,0 +1,6 @@
+pre.code {
+	overflow-x: scroll; white-space: pre;
+}
+tt.docutils.literal {
+ 	background-color: #f9f9f9;
+}
