@@ -1,5 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Stephen's Home - posts</title><link href="https://zsrkmyn.github.io/" rel="alternate"></link><link href="https://zsrkmyn.github.io/feeds/posts.atom.xml" rel="self"></link><id>https://zsrkmyn.github.io/</id><updated>2017-07-20T00:00:00+08:00</updated><entry><title>记一次打败坑爹魅族的手机管家经历</title><link href="https://zsrkmyn.github.io/how-do-i-fvck-flymed.html" rel="alternate"></link><published>2017-07-20T00:00:00+08:00</published><updated>2017-07-20T00:00:00+08:00</updated><author><name>Stephen Zhang</name></author><id>tag:zsrkmyn.github.io,2017-07-20:/how-do-i-fvck-flymed.html</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Stephen's Home - posts</title><link href="https://zsrkmyn.github.io/" rel="alternate"></link><link href="https://zsrkmyn.github.io/feeds/posts.atom.xml" rel="self"></link><id>https://zsrkmyn.github.io/</id><updated>2018-01-12T00:00:00+08:00</updated><entry><title>伪·如何在 Linux 下使用深信服 SSL VPN</title><link href="https://zsrkmyn.github.io/how-to-use-sangfor-sslvpn-in-linux.html" rel="alternate"></link><published>2018-01-12T00:00:00+08:00</published><updated>2018-01-12T00:00:00+08:00</updated><author><name>Stephen Zhang</name></author><id>tag:zsrkmyn.github.io,2018-01-12:/how-to-use-sangfor-sslvpn-in-linux.html</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id1" id="id4"&gt;背景&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id5"&gt;配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id6"&gt;画张图&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;背景&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;本文大概会很水……&lt;/p&gt;
+&lt;p&gt;由于要在外网访问校内的资源，包括实验室的服务器什么的，所以学校提供了接入校内的 VPN 服务。三本院校的采用国内著名的深信服 SSL VPN。众所周知，国内各种企业的产品都是没有 Linux 版本的，所以要在 Linux 下使用深信服的 SSL VPN，还是得装个虚拟机 _(:з」∠)_ 好了，感觉读到这里你要就失望了，哎，没办法呀，有谁去破解下辣鸡深信服的 SSL VPN 协议呗？&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;配置&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;嗯，用 qemu 装个 Bugdows，在 Bugdows 上装个深信服的 EasyConnect。&lt;/p&gt;
+&lt;p&gt;在 Linux 下创建一个 bridge：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ip …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id1" id="id4"&gt;背景&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id2" id="id5"&gt;配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id3" id="id6"&gt;画张图&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id4"&gt;背景&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;本文大概会很水……&lt;/p&gt;
+&lt;p&gt;由于要在外网访问校内的资源，包括实验室的服务器什么的，所以学校提供了接入校内的 VPN 服务。三本院校的采用国内著名的深信服 SSL VPN。众所周知，国内各种企业的产品都是没有 Linux 版本的，所以要在 Linux 下使用深信服的 SSL VPN，还是得装个虚拟机 _(:з」∠)_ 好了，感觉读到这里你要就失望了，哎，没办法呀，有谁去破解下辣鸡深信服的 SSL VPN 协议呗？&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id5"&gt;配置&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;嗯，用 qemu 装个 Bugdows，在 Bugdows 上装个深信服的 EasyConnect。&lt;/p&gt;
+&lt;p&gt;在 Linux 下创建一个 bridge：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ip l add qbr0 type bridge
+ip l set qbr0 up
+&lt;/pre&gt;
+&lt;p&gt;启动虚拟机的时候需要给 Windows 添加两块网卡，一块采用 user 模式，也就是 &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Slirp"&gt;SLiRP&lt;/a&gt; 模式，另一块采用 bridge 模式：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+qemu-system-x86-64 \
+-netdev user,id=mynet0,net=192.168.76.0/24,dhcpstart=192.168.76.9 \
+-device virtio-net,netdev=mynet0 \
+-netdev bridge,id=mynet1,br=qbr0 \
+-device virtio-net,netdev=mynet1 \
+...
+&lt;/pre&gt;
+&lt;p&gt;这一步 qemu 会利用 qemu-bridge-helper 自动创建一个 tap 设备，并且把这个 tap 连到 qbr0 里。因为 qemu-bridge-helper 是 setuid 的，qemu-bridge-helper 会检查授权，如果这一步出现 ACL 错误提示，需要在 &lt;tt class="docutils literal"&gt;/etc/qemu/bridge.conf&lt;/tt&gt; 里添加上 &lt;tt class="docutils literal"&gt;allow qbr0&lt;/tt&gt; ，如果要允许接入任意的网桥，就添加 &lt;tt class="docutils literal"&gt;allow all&lt;/tt&gt; 。&lt;/p&gt;
+&lt;p&gt;启动 Windows，启动 EasyConnect，这时 Windows 下应该出现 3 块网卡，一块 user 模式，我们叫它「Network 1」，一块是 bridge 模式，叫他「Network 2」，还有一个是 SSL VPN 的虚拟网卡，叫它「spicy chicken sangfor」。下面把 Linux 称为 Host，Windows 称为 Guest。&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;「Network 1」用于接入互联网，这块网卡只能从 Guest 访问 Host，没法从 Host 访问 Guest，类似与 vbox 的 NAT 模式；&lt;/li&gt;
+&lt;li&gt;「Network 2」用于 Host 和 Guest 间的相互通信，这里主要是把 Host 的数据传个 VPN；&lt;/li&gt;
+&lt;li&gt;「spicy chicken sangfor」当然是用来访问内网了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这时候共享 「spicy chicken sangfor」，右键属性 -&amp;gt; 共享 -&amp;gt; 选「Network 2」 -&amp;gt; 确定。之后 Windows 会自动把「Network 2」的 IP 设置成 192.168.137.1，并且在这个网络上启动一个 DHCP 服务器。我不太懂 Windows 为啥要把 IP 改成这个，用原来的不好么？&lt;/p&gt;
+&lt;p&gt;在 Linux 上对 qbr0 启动 dhcpcd，qbr0 会自动分配到一个 192.168.137.X/24 的地址，当然也可以手动设置，只要在这个网段内就可以了。再配置一下路由表，让内网的 IP 走 qbr0 接口就好了：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+ip r add 10.0.0.0/8 via 192.168.137.1 dev qbr0
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id6"&gt;画张图&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;其实很好理解，现在访问内网的路由大概是这样：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+                               (VPN)                          (ICS)
+Guest(Windows)    [Network 1] &amp;lt;----- [spicy chicken sangfor] &amp;lt;----- [Network 2]
+                       |                                                 ^
+                       | (SLiRP)                                         |
+-----------------------|-------------------------------------------------|-------------
+                       |                                                 |
+                       v                                                 |
+Host(Linux)          [eth0]                                           [qbr0] &amp;lt;- [tap0]
+                       |                                                          ^
+                       v                                                          |
+                     target                                                    request
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;EOF&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="sangfor"></category><category term="vpn"></category><category term="linux"></category></entry><entry><title>记一次打败坑爹魅族的手机管家经历</title><link href="https://zsrkmyn.github.io/how-do-i-fvck-flymed.html" rel="alternate"></link><published>2017-07-20T00:00:00+08:00</published><updated>2017-07-20T00:00:00+08:00</updated><author><name>Stephen Zhang</name></author><id>tag:zsrkmyn.github.io,2017-07-20:/how-do-i-fvck-flymed.html</id><summary type="html">&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="#id2" id="id7"&gt;吐槽&lt;/a&gt;&lt;/li&gt;
